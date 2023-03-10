@@ -1,4 +1,4 @@
-import { copyArray, deepCopyArray } from "../array/copy";
+import { copyArray, deepCopyArray } from "../../array/copy";
 
 describe("array 얕은 복사", () => {
     const arr = [1, 2, 3];

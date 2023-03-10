@@ -1,7 +1,7 @@
 import { deepCopyObj } from "../object/copy"
 
 export function copyArray<T>(arr: T[]): T[] {
-    if(!Array.isArray(arr)) throw new TypeError("parameter can be array type")
+    if(!Array.isArray(arr)) throw new TypeError("parameter must be array type")
     const copyArr = arr.slice()
 
     return copyArr
@@ -9,7 +9,7 @@ export function copyArray<T>(arr: T[]): T[] {
 
 
 export function deepCopyArray(arr: unknown[]): any {
-    if (!Array.isArray(arr)) throw new TypeError("parameter can be array type")
+    if (!Array.isArray(arr)) throw new TypeError("parameter must be array type")
 
     if (arr.length === 0) return []
 

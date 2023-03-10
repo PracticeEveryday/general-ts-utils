@@ -1,5 +1,5 @@
-import { copyObj, deepCopyObj } from "../object/copy";
-import { Person } from "./interfaces";
+import { copyObj, deepCopyObj } from "../../object/copy";
+import { Person } from "../interfaces";
 
 const obj: Person = {
     name : "kim",
@@ -41,13 +41,13 @@ describe("obj 깊은 복사", () => {
 
     test("parameter가 객체가 아니면 타입에러를 던집니다.", () => {
         expect(() => deepCopyObj("test")).toThrow(TypeError)
-        expect(() => deepCopyObj("test")).toThrow("parameter can be object type")
+        expect(() => deepCopyObj("test")).toThrow("parameter must be object type")
         expect(() => deepCopyObj(1)).toThrow(TypeError)
-        expect(() => deepCopyObj(1)).toThrow("parameter can be object type")
+        expect(() => deepCopyObj(1)).toThrow("parameter must be object type")
         expect(() => deepCopyObj([1, 2, 3])).toThrow(TypeError)
-        expect(() => deepCopyObj([1, 2, 3])).toThrow("parameter can be object type")
+        expect(() => deepCopyObj([1, 2, 3])).toThrow("parameter must be object type")
         expect(() => deepCopyObj(true)).toThrow(TypeError)
-        expect(() => deepCopyObj(true)).toThrow("parameter can be object type")
+        expect(() => deepCopyObj(true)).toThrow("parameter must be object type")
     })
     
 })
