@@ -20,6 +20,10 @@ describe("array 깊은 복사", () => {
     test("arr을 복사하면 값이 동일합니다.", () => {
         expect(arr).toEqual(arr2);
     });
+    
+    test("arr과 arr2의 같은 주소를 참조하지 않습니다..", () => {
+        expect(arr === arr2).toEqual(false);
+    })
 
     test("arr과 arr2의 같은 주소를 참조하지 않습니다. 깊은 복사가 되었습니다.", () => {
         expect(arr === arr2).toEqual(false);

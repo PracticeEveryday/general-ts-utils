@@ -1,17 +1,17 @@
 import { BasicObj } from "../types";
 
-export const copyObj = <T>(obj: T): T | undefined => {
+export const copyObj = <T>(obj: T): T => {
     if(obj && typeof obj === 'object') {
         const copyObj = Object.assign({}, obj)
 
         return copyObj
     } else {
-        TypeError("parameter can be object type")
+        throw new TypeError("parameter can be object type")
     }
 }
 
-export const deepCopyObject = <T>(obj: T): T | undefined => {
-    if (obj && typeof obj === 'object') {
+export const deepCopyObject = <T>(obj: T): T => {
+    if (obj && typeof obj === 'object' && !Array.isArray(obj)) {
         let copyObj = <any>{};
         for (const key in obj) {
             if (typeof obj[key] === "object" && obj[key] !== null) {
@@ -22,6 +22,6 @@ export const deepCopyObject = <T>(obj: T): T | undefined => {
         }
         return copyObj;
     } else {
-        TypeError("parameter can be object type")
+        throw new TypeError("parameter can be object type")
     }
 }
