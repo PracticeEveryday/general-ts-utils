@@ -1,4 +1,4 @@
-export const isArray = (arr: unknown): boolean => {
+export const isArray = (arr: unknown[]): boolean => {
     if(arr && Array.isArray(arr)) {
         return true
     } else {
@@ -6,7 +6,7 @@ export const isArray = (arr: unknown): boolean => {
     }
 }
 
-export const isArrayAndNotEmpty = (arr: unknown): boolean => {
+export const isArrayAndNotEmpty = (arr: unknown[]): boolean => {
     if(arr && Array.isArray(arr) && arr.length) {
         return true
     } else {
