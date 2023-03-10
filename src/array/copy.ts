@@ -1,4 +1,4 @@
-import { deepCopyObject } from "../object/copy"
+import { deepCopyObj } from "../object/copy"
 
 export function copyArray<T>(arr: T[]): T[] {
     if(!Array.isArray(arr)) throw new TypeError("parameter can be array type")
@@ -17,7 +17,7 @@ export function deepCopyArray(arr: unknown[]): any {
         if (Array.isArray(value)) {
             return deepCopyArray(value)
         } else if (typeof value === "object") { 
-            return deepCopyObject(value)
+            return deepCopyObj(value)
         } else {
             return value
         }

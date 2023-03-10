@@ -10,12 +10,12 @@ export const copyObj = <T>(obj: T): T => {
     }
 }
 
-export const deepCopyObject = <T>(obj: T): T => {
+export const deepCopyObj = <T>(obj: T): T => {
     if (obj && typeof obj === 'object' && !Array.isArray(obj)) {
         let copyObj = <any>{};
         for (const key in obj) {
             if (typeof obj[key] === "object" && obj[key] !== null) {
-                copyObj[key] = deepCopyObject(obj[key]);
+                copyObj[key] = deepCopyObj(obj[key]);
             } else {
                 copyObj[key] = obj[key];
             }

@@ -1,16 +1,5 @@
-import { copyObj, deepCopyObject } from "../object/copy";
-
-interface Address {
-    zipCode: number;
-    mainAddress: string;
-    detailAddress: string;
-}
-
-interface Person{
-    name: string;
-    age: number;
-    address: Address
-}
+import { copyObj, deepCopyObj } from "../object/copy";
+import { Person } from "./interfaces";
 
 const obj: Person = {
     name : "kim",
@@ -21,6 +10,7 @@ const obj: Person = {
         detailAddress: "25길"
     }
 }
+
 describe("obj 얕은 복사", () => {
     const obj2 = copyObj<Person>(obj)
 
@@ -34,7 +24,7 @@ describe("obj 얕은 복사", () => {
 })
 
 describe("obj 깊은 복사", () => {
-    const obj2 = deepCopyObject<Person>(obj)
+    const obj2 = deepCopyObj<Person>(obj)
 
     test("obj를 복사하면 값이 동일합니다.", () => {
         expect(obj).toEqual(obj2)
@@ -50,14 +40,14 @@ describe("obj 깊은 복사", () => {
     })
 
     test("parameter가 객체가 아니면 타입에러를 던집니다.", () => {
-        expect(() => deepCopyObject("test")).toThrow(TypeError)
-        expect(() => deepCopyObject("test")).toThrow("parameter can be object type")
-        expect(() => deepCopyObject(1)).toThrow(TypeError)
-        expect(() => deepCopyObject(1)).toThrow("parameter can be object type")
-        expect(() => deepCopyObject([1, 2, 3])).toThrow(TypeError)
-        expect(() => deepCopyObject([1, 2, 3])).toThrow("parameter can be object type")
-        expect(() => deepCopyObject(true)).toThrow(TypeError)
-        expect(() => deepCopyObject(true)).toThrow("parameter can be object type")
+        expect(() => deepCopyObj("test")).toThrow(TypeError)
+        expect(() => deepCopyObj("test")).toThrow("parameter can be object type")
+        expect(() => deepCopyObj(1)).toThrow(TypeError)
+        expect(() => deepCopyObj(1)).toThrow("parameter can be object type")
+        expect(() => deepCopyObj([1, 2, 3])).toThrow(TypeError)
+        expect(() => deepCopyObj([1, 2, 3])).toThrow("parameter can be object type")
+        expect(() => deepCopyObj(true)).toThrow(TypeError)
+        expect(() => deepCopyObj(true)).toThrow("parameter can be object type")
     })
     
 })
