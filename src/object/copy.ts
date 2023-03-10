@@ -1,34 +1,18 @@
-interface BasicObj {
-    [ property: string]: any
+import { BasicObj } from "../types";
+
+export const copyObj = <T>(obj: T): T | undefined => {
+    if(obj && typeof obj === 'object') {
+        const copyObj = Object.assign({}, obj)
+
+        return copyObj
+    } else {
+        TypeError("parameter can be object type")
+    }
 }
 
-export function copyObj<T>(obj: T): T {
-    if(!(obj instanceof Object)) TypeError("parameter can be object type")
-    const copyObj = Object.assign({}, obj)
-
-    return copyObj
-}
-
-// export function deepCopyObject<T>(obj: T): T {
-//     if (!(obj instanceof Object)) TypeError("parameter can be object type")
-    
-//     let copyObj = <T>{};
-    
-//     for (const key in obj) {
-//         if (typeof obj[key] === "object" && obj[key] !== null) {
-//         copyObj[key] = deepCopyObject(obj[key]);
-//         } else {
-//         copyObj[key] = obj[key];
-//         }
-//     }
-
-//   return copyObj;
-// }
-
-
-export function deepCopyObject(obj: BasicObj) {
+export const deepCopyObject = <T>(obj: T): T | undefined => {
     if (obj && typeof obj === 'object') {
-        let copyObj = <BasicObj>{};
+        let copyObj = <any>{};
         for (const key in obj) {
             if (typeof obj[key] === "object" && obj[key] !== null) {
                 copyObj[key] = deepCopyObject(obj[key]);
@@ -37,6 +21,7 @@ export function deepCopyObject(obj: BasicObj) {
             }
         }
         return copyObj;
+    } else {
+        TypeError("parameter can be object type")
     }
-    TypeError("parameter can be object type")
 }

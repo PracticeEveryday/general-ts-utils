@@ -14,12 +14,11 @@ export function deepCopyArray(arr: any[]): any {
     if (arr.length === 0) return []
 
     const copyArray = arr.map((value) => {
-        if (value instanceof Object) { 
-            return deepCopyObject(value)
-        } else if (Array.isArray(value)) {
+        if (Array.isArray(value)) {
             return deepCopyArray(value)
-        }
-        else {
+        } else if (typeof value === "object") { 
+            return deepCopyObject(value)
+        } else {
             return value
         }
     })
