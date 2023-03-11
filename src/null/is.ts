@@ -1,3 +1,3 @@
-export const isNull = (target: unknown): boolean => {
-  return target === null;
+export const isNull = (val: unknown): boolean => {
+  return val === null;
 }
