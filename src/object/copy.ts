@@ -1,5 +1,3 @@
-import { BasicObj } from "../types";
-
 export const copyObj = <T>(obj: T): T => {
     if(obj && typeof obj === 'object' && !Array.isArray(obj)) {
         const copyObj = Object.assign({}, obj)
