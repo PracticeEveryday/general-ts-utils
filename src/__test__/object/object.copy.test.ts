@@ -48,6 +48,10 @@ describe("obj 깊은 복사", () => {
         expect(() => deepCopyObj([1, 2, 3])).toThrow("parameter must be object type")
         expect(() => deepCopyObj(true)).toThrow(TypeError)
         expect(() => deepCopyObj(true)).toThrow("parameter must be object type")
+        expect(() => deepCopyObj(null)).toThrow(TypeError)
+        expect(() => deepCopyObj(null)).toThrow("parameter must be object type")
+        expect(() => deepCopyObj(undefined)).toThrow(TypeError)
+        expect(() => deepCopyObj(undefined)).toThrow("parameter must be object type")
     })
     
 })
