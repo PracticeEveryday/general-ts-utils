@@ -1,5 +1,5 @@
+import { isArray } from "../is";
 import { deepCopyObj } from "../object/copy"
-import { isArray } from "./is"
 
 export const copyArray = <T>(arr: T[]): T[] => {
     if(!Array.isArray(arr)) throw new TypeError("parameter must be array type")
