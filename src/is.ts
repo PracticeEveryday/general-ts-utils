@@ -7,11 +7,19 @@ export const isUndefined = (val: unknown): boolean => {
 }
 
 export const isString = (str: unknown): boolean => {
-  return typeof str === "string";
+  if ( str && typeof str === "string") {
+    return true
+  } else {
+    return false
+  }
 }
 
 export const isNumber = (num: unknown): boolean => {
-  return typeof num === "number";
+  if (num && typeof num === "number") {
+    return true
+  } else {
+    return false
+  }
 }
 
 export const isBoolean = (bool: unknown): boolean => {
@@ -25,6 +33,14 @@ export const isArray = (arr: unknown[]): boolean => {
       return false
   }
 }
+
+export const isEmpty = (val: unknown): boolean => {
+  if(val === "" || val === null || val === undefined || ( val !== null && typeof val == "object" && !Object.keys(val).length)){
+    return true
+  }else{
+    return false
+  }
+};
 
 export const isArrayAndNotEmpty = (arr: unknown[]): boolean => {
   if(arr && Array.isArray(arr) && arr.length) {

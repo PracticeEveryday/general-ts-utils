@@ -1,4 +1,4 @@
-import { isArray, isArrayAndNotEmpty, isNull, isBoolean, isNumber, isString, isUndefined } from "../is"
+import { isArray, isArrayAndNotEmpty, isNull, isBoolean, isNumber, isString, isUndefined, isEmpty } from "../is"
 
 
 describe("null 값 체크", () => {
@@ -94,7 +94,22 @@ describe("Undefined 값 체크", () => {
   })
 
   test("Undefined 값이 들어오면 true를 뱉어냅니다.", () => {
-    expect(isUndefined(undefined)).toBe(true)
-    
+    expect(isUndefined(undefined)).toBe(true)  
+  })
+})
+
+describe("값이 비었는지 체크합니다.", () => {
+  test("값이 비어있으면 true를 뱉어냅니다. 비어있는 값 : '', null, undefined, [], {}", () => {
+    expect(isEmpty(null)).toBe(true)
+    expect(isEmpty(undefined)).toBe(true)
+    expect(isEmpty([])).toBe(true)
+    expect(isEmpty({})).toBe(true)
+  })
+
+  test("값이 비어있지 않으면 false를 뱉어냅니다.", () => {
+    expect(isEmpty(1)).toBe(false)
+    expect(isEmpty("test")).toBe(false)
+    expect(isEmpty([1, 2, 3])).toBe(false)
+    expect(isEmpty({ a: "a", b: "b"})).toBe(false)
   })
 })
