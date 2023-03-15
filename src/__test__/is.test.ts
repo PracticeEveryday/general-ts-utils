@@ -1,4 +1,4 @@
-import { isArray, isArrayAndNotEmpty, isNull, isBoolean, isNumber, isString, isUndefined, isEmpty, checkHasKey, checkHaveKeyArray } from "../is"
+import { isArray, isArrayAndNotEmpty, isNull, isBoolean, isNumber, isString, isUndefined, isEmpty, checkHasKey, checkHaveKeyArray, isCallable } from "../is"
 
 
 describe("null 값 체크", () => {
@@ -134,5 +134,21 @@ describe("배열 내 프로퍼티를 가지고 있는지 확인합니다..", () 
   test("배열 내 하나라도 없으면 없으면 false를 반환합니다.", () => {
     expect(checkHaveKeyArray({a:"a", b:"b"}, ["c", "b"])).toBe(false)
     expect(checkHaveKeyArray({a:"a", b:"b"}, ["c", "d"])).toBe(false)
+  })
+})
+
+describe("함수인지 아닌지 확인합니다..", () => {
+  test("함수면 true를 반환합니다.", () => {
+    expect(isCallable((a:number, b:number) => a + b)).toBe(true)
+  })
+
+  test("함수가 아니면 false를 반환합니다.", () => {
+    expect(isCallable(1)).toBe(false)
+    expect(isCallable("1")).toBe(false)
+    expect(isCallable(true)).toBe(false)
+    expect(isCallable(false)).toBe(false)
+    expect(isCallable([1, 2, 3])).toBe(false)
+    expect(isCallable({a: "a"})).toBe(false)
+
   })
 })
