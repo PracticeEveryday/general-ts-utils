@@ -8,7 +8,6 @@ export const copyArray = <T>(arr: T[]): T[] => {
     return copyArr
 };
 
-
 export const deepCopyArray = (arr: unknown[]): any => {
     if (!Array.isArray(arr)) throw new TypeError("parameter must be array type")
 

@@ -7,7 +7,7 @@ export const isUndefined = (val: unknown): boolean => {
 }
 
 export const isString = (str: unknown): boolean => {
-  if ( str && typeof str === "string") {
+  if (str && typeof str === "string") {
     return true
   } else {
     return false
@@ -50,6 +50,10 @@ export const isArrayAndNotEmpty = (arr: unknown[]): boolean => {
   }
 }
 
+export const isCallable = (fn: unknown): fn is Function => {
+  return typeof fn === 'function';
+}
+
 export const checkHasKey = <T extends object>(object: T, key: string | number | symbol): key is keyof T => {
   return key in object;
 }
@@ -57,11 +61,4 @@ export const checkHasKey = <T extends object>(object: T, key: string | number | 
 export const checkHaveKeyArray = <T extends object>( object: T, keyArray: (string | number | symbol)[]): boolean => {
     return keyArray.every((key) => key in object)
 }
-
-
-export const isCallable = (fn: unknown): fn is Function => {
-  return typeof fn === 'function';
-}
-
-
 
