@@ -1,4 +1,4 @@
-import { isArray, isArrayAndNotEmpty, isNull, isBoolean, isNumber, isString, isUndefined, isEmpty } from "../is"
+import { isArray, isArrayAndNotEmpty, isNull, isBoolean, isNumber, isString, isUndefined, isEmpty, checkHasKey, checkHaveKeyArray } from "../is"
 
 
 describe("null 값 체크", () => {
@@ -111,5 +111,28 @@ describe("값이 비었는지 체크합니다.", () => {
     expect(isEmpty("test")).toBe(false)
     expect(isEmpty([1, 2, 3])).toBe(false)
     expect(isEmpty({ a: "a", b: "b"})).toBe(false)
+  })
+})
+
+describe("프로퍼티를 가지고 있는지 확인합니다..", () => {
+  test("프로퍼티가 있으면 true를 반환합니다.", () => {
+    expect(checkHasKey({a:"a", b:"b"}, "a")).toBe(true)
+    expect(checkHasKey({a:"a", b:"b"}, "b")).toBe(true)
+  })
+
+  test("프로퍼티가 없으면 false를 반환합니다.", () => {
+    expect(checkHasKey({a:"a", b:"b"}, "c")).toBe(false)
+    expect(checkHasKey({a:"a", b:"b"}, "d")).toBe(false)
+  })
+})
+
+describe("배열 내 프로퍼티를 가지고 있는지 확인합니다..", () => {
+  test("배열 모두 가지고 있으면 true를 반환합니다.", () => {
+    expect(checkHaveKeyArray({a:"a", b:"b"}, ["a", "b"])).toBe(true)
+  })
+
+  test("배열 내 하나라도 없으면 없으면 false를 반환합니다.", () => {
+    expect(checkHaveKeyArray({a:"a", b:"b"}, ["c", "b"])).toBe(false)
+    expect(checkHaveKeyArray({a:"a", b:"b"}, ["c", "d"])).toBe(false)
   })
 })

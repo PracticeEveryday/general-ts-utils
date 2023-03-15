@@ -1,5 +1,3 @@
-import { Person } from "./__test__/interfaces";
-
 export const isNull = (val: unknown): boolean => {
   return val === null;
 }
@@ -52,35 +50,10 @@ export const isArrayAndNotEmpty = (arr: unknown[]): boolean => {
   }
 }
 
-function checkHasKey<T extends object>(
-  object: T,
-  key: string | number | symbol 
-):  key is keyof T{
+export const checkHasKey = <T extends object>(object: T, key: string | number | symbol): key is keyof T => {
   return key in object;
 }
 
-
-
-
-function CheckHaveKeyArray<T extends object>(
-  object: T,
-  keyArray: (string | number | symbol) [] 
-):  boolean{
-    const bool = keyArray.every((key) => key in object)
-
-    return bool
+export const checkHaveKeyArray = <T extends object>( object: T, keyArray: (string | number | symbol)[]): boolean => {
+    return keyArray.every((key) => key in object)
 }
-
-
-const person = {
-    name: "kim",
-    age: 39,
-    address: "관악구",
-}
-
-const bool = checkHasKey(person, "name")
-
-console.log(bool)
-
-const bool2 = CheckHaveKeyArray(person, ["name", "a"])
-console.log(bool2)
