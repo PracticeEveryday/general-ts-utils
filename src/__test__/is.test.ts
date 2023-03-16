@@ -149,6 +149,5 @@ describe("함수인지 아닌지 확인합니다..", () => {
     expect(isCallable(false)).toBe(false)
     expect(isCallable([1, 2, 3])).toBe(false)
     expect(isCallable({a: "a"})).toBe(false)
-
   })
 })
