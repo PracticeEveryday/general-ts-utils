@@ -34,6 +34,10 @@ export const isArray = (arr: unknown[]): boolean => {
     }
 };
 
+export const isDateValid = (date: Date): boolean => {
+    return !Number.isNaN(date.getTime());
+};
+
 export const isEmpty = (val: unknown): boolean => {
     if (val === '' || val === null || val === undefined || (val !== null && typeof val == 'object' && !Object.keys(val).length)) {
         return true;
@@ -54,10 +58,10 @@ export const isCallable = (fn: unknown): fn is Function => {
     return typeof fn === 'function';
 };
 
-export const checkHasKey = <T extends object>(object: T, key: string | number | symbol): key is keyof T => {
-    return key in object;
+export const checkHasKey = <T extends object>(obj: T, key: string | number | symbol): key is keyof T => {
+    return key in obj;
 };
 
-export const checkHaveKeyArray = <T extends object>(object: T, keyArray: (string | number | symbol)[]): boolean => {
-    return keyArray.every((key) => key in object);
+export const checkHaveKeyArray = <T extends object>(obj: T, keyArray: (string | number | symbol)[]): boolean => {
+    return keyArray.every((key) => key in obj);
 };
