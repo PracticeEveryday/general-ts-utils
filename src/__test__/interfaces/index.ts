@@ -4,8 +4,8 @@ export interface Address {
     detailAddress: string;
 }
 
-export interface Person{
+export interface Person {
     name: string;
     age: number;
-    address: Address
+    address: Address;
 }
