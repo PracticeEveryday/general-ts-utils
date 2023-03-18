@@ -147,12 +147,6 @@ describe('배열 내 프로퍼티를 가지고 있는지 확인합니다..', () 
     });
 });
 
-describe('함수인지 아닌지 확인합니다..', () => {
-    test('함수면 true를 반환합니다.', () => {
-        expect(isCallable((a: number, b: number) => a + b)).toBe(true);
-    });
-
-<<<<<<< HEAD
 describe("함수인지 아닌지 확인합니다..", () => {
   test("함수면 true를 반환합니다.", () => {
     expect(isCallable((a:number, b:number) => a + b)).toBe(true)
@@ -167,14 +161,3 @@ describe("함수인지 아닌지 확인합니다..", () => {
     expect(isCallable({a: "a"})).toBe(false)
   })
 })
-=======
-    test('함수가 아니면 false를 반환합니다.', () => {
-        expect(isCallable(1)).toBe(false);
-        expect(isCallable('1')).toBe(false);
-        expect(isCallable(true)).toBe(false);
-        expect(isCallable(false)).toBe(false);
-        expect(isCallable([1, 2, 3])).toBe(false);
-        expect(isCallable({ a: 'a' })).toBe(false);
-    });
-});
->>>>>>> b69c988ae1c0b20df821feed019232004b97376e
