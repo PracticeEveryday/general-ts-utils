@@ -4,7 +4,7 @@
  * @param arr2 비교할 배열2
  * @returns Boolean
  */
-const equelArray = (arr1: unknown[], arr2: unknown[]): boolean => {
+export const equelArray = (arr1: unknown[], arr2: unknown[]): boolean => {
     if (arr1 === arr2) return true;
     if (arr1.length !== arr2.length) return false;
 
